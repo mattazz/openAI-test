@@ -17,3 +17,7 @@
 #bigText{
     font-size: 5rem;
 }
+
+.imgGen{
+    max-width: 50%;
+}
