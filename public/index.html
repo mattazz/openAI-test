@@ -29,6 +29,21 @@
     </nav>
 
     <!-- Main Feature -->
+    <div class=" text-center mt-3 w-50 mx-auto">
+        <span id="bigText">"</span>
+        <p class="quotation">OpenAI is a research laboratory based in San Francisco, California, 
+            focused on artificial intelligence (AI) research. It was founded 
+            in December 2015 by Elon Musk, Sam Altman, Greg Brockman, 
+            and Ilya Sutskever. </p>
+            
+            <p>OpenAI's mission is to ensure that artificial 
+            general intelligence (AGI) benefits all of humanity. 
+            OpenAI works on advancing digital intelligence in the way that is 
+            most likely to benefit humanity as a whole, unconstrained by a need 
+            to generate financial return.</p>
+            <span id="bigText">"</span>
+            <p class="quotation">- by Open AI (So likely not accurate.)</p>
+    </div>
     <div class=" border border-dark py-5 mt-3 w-75 mx-auto rounded border-5 text-center border-start-0 border-end-0">
         <div class=" container-fluid text-center bg-black text-light w-75 rounded my-auto p-5">
             <form action="/" method="post">
@@ -43,6 +58,11 @@
             <form action="/img" method="post">
                 <h3>Input an image description</h3>
                 <hr>
+                <p class=" text-light">Example prompt: </p>
+                <p class=" fst-italic">Shiba smiling on top of a hill wearing a raincoat</p>
+                <p>Sample output:</p>
+                <img src="/images/sampleOutput.png" alt="" class="w-100 rounded">
+                <hr>
                 <input type="text" name="imgInput" class=" form-control w-100 mt-2 mx-auto" placeholder="'Image description here'" required>
                 <button type="submit" class=" btn btn-light mt-3 genButton"> Generate</button>
             </form>
@@ -50,7 +70,7 @@
     </div>
 </div>
 
-<p class=" text-center mt-2"><i>Mattazz 2022</i></p>
+<p class=" text-center mt-2"><i>Z, 2022</i></p>
 
     
 
