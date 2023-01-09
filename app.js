@@ -8,8 +8,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static('public'))
 
 
-// let OPEN_AI_API_KEY = process.env.API_KEY
-let OPEN_AI_API_KEY = "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"
+let OPEN_AI_API_KEY = process.env.API_KEY
+
 let orgID = 'org-YqkSoqf18JKiZxGkdJpc0NSW'
 let userPrompt = 'How are you'
 
