@@ -8,7 +8,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static('public'))
 
 
-let OPEN_AI_API_KEY = process.env.API_KEY
+// let OPEN_AI_API_KEY = process.env.API_KEY
+let OPEN_AI_API_KEY = "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"
 let orgID = 'org-YqkSoqf18JKiZxGkdJpc0NSW'
 let userPrompt = 'How are you'
 
@@ -23,6 +24,8 @@ app.get('/', (req, res) =>{
 })
 app.post('/', (req, res) =>{
     userPrompt = req.body.userInput
+    aiModel = req.body.chatModel
+    console.log(aiModel)
     let maxTokens = 200
     
     const openai = new OpenAIApi(configuration)
@@ -35,6 +38,7 @@ app.post('/', (req, res) =>{
         res.setHeader('Content-type', 'text/html')
         res.write(`<p> User input: ${userPrompt} </p> <hr>`)
         res.write('<h1>' + response.data.choices[0].text + '</h1>')
+        console.log(`Response: ${JSON.stringify(response.data)}`)
         res.write('<a href="/index.html"> Try again </a>')
         res.end()
 

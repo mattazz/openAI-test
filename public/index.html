@@ -50,8 +50,22 @@
             <form action="/" method="post">
                 <h3>Input something to make the AI talk</h3>
                 <hr>
-                <input type="text" name="userInput" id="" class="form-control mb-3 w-100 mx-auto" placeholder="'How are you?'" required>
-                            <button type="submit" class="btn btn-light genButton">Chat</button>
+                <input type="text" name="userInput" id="" class="form-control mb-3 w-100 mx-auto" placeholder="'How are you?'" required  autofocus>
+               
+                <div class="form-check mb-2">
+                    <label class="form-check-label"> 
+                    <input class="form-check-input" name="chatModel" id="" type="radio" value="text-davinci-003" checked> 
+                    GPT-3 (davinci-003)
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                    <label class="form-check-label"> 
+                    <input class="form-check-input" name="chatModel" id="" type="radio" value="code-davinci-002"> 
+                    Codex (davinci-002)
+                  </label>
+                </div>
+
+                <button type="submit" class="btn btn-light genButton">Chat</button>
             </form>
         </div>
 
