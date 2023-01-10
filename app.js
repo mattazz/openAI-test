@@ -78,7 +78,7 @@ app.post('/img', (req, res) =>{
         res.setHeader('Content-type', 'text/html')
         res.write(`<p> User image description: ${imgPrompt} </p> <hr>`)
         res.write(`<img src="${imgURL}"><br>`)
-        res.write('<a href="/index.html"> Try again </a>')
+        res.write('<a href="https://openaiztest.herokuapp.com"> Try again </a>')
         res.end()
     })
 
