@@ -13,8 +13,8 @@ let OPEN_AI_API_KEY = process.env.API_KEY
 
 let orgID = 'org-YqkSoqf18JKiZxGkdJpc0NSW'
 let userPrompt = 'How are you'
-let nodeResponse = 'AI Response will be here'
-
+let nodeResponse = 'AI response will be here'
+let prevIP = ''
 const configuration = new Configuration({
     apiKey: OPEN_AI_API_KEY,
 })
@@ -23,6 +23,15 @@ const configuration = new Configuration({
 app.get('/', (req, res) =>{
     // res.sendFile(__dirname + '/public/index.html')
     // res.send('Hello')
+    let ipAddress = req.socket.remoteAddress
+    prevIP = ipAddress
+
+    if(ipAddress != prevIP){
+        console.log(`Detecting new user ${ipAddress}... clearing values.`)
+        nodeResponse = 'AI response will be here'
+    } else {
+        console.log(`Same user ${ipAddress} connected`)
+    }
     res.render('index',{
         response: nodeResponse,
     })
