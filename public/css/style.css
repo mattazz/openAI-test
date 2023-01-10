@@ -4,6 +4,15 @@
     border-radius: 10px;
 }
 
+.ai-response{
+    border: 1px solid white;
+    border-radius: 10px;
+}
+.token-field{
+    border-radius: 5px;
+    margin-left: -20px;
+    padding: 5px;
+}
 .genButton:hover{
     transform: scale(1.15);
     transition: all 2s;

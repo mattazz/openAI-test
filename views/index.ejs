@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI Generation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/91adf38b53.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js' integrity='sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==' crossorigin='anonymous'></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-black text-light">
+          <div class="container">
+            <a class="navbar-brand text-light" href="#"> <span class="fa-light fa-robot fa me-2"></span> OpenAI Chat Test</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <!-- <a class="nav-link active text-light" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a> -->
+                    </li>
+                </ul>
+            </div>
+      </div>
+    </nav>
+
+    <!-- Main Feature -->
+    <!-- <div class=" text-center mt-3 w-50 mx-auto">
+        <span id="bigText">"</span>
+        <p class="quotation">OpenAI is a research laboratory based in San Francisco, California, 
+            focused on artificial intelligence (AI) research. It was founded 
+            in December 2015 by Elon Musk, Sam Altman, Greg Brockman, 
+            and Ilya Sutskever. </p>
+            
+            <p>OpenAI's mission is to ensure that artificial 
+            general intelligence (AGI) benefits all of humanity. 
+            OpenAI works on advancing digital intelligence in the way that is 
+            most likely to benefit humanity as a whole, unconstrained by a need 
+            to generate financial return.</p>
+            <span id="bigText" class=" m-0 p-0">"</span>
+            <p class="quotation">- by Open AI (So likely not accurate.)</p>
+    </div> -->
+    <div class=" border border-dark py-5 mt-3 w-75 mx-auto rounded border-5 text-center border-start-0 border-end-0">
+        <div class=" container-fluid text-center bg-black text-light w-75 rounded my-auto p-5">
+            <form action="/" method="post">
+                <h3>Input something to make the AI talk</h3>
+                <hr>
+                <input type="text" name="userInput" id="" class="form-control mb-3 w-100 mx-auto" placeholder="'How are you?'" required  autofocus>
+               
+                <div class="form-check mb-2">
+                    <label class="form-check-label"> 
+                    <input class="form-check-input" name="chatModel" id="" type="radio" value="text-davinci-003" checked> 
+                    GPT-3 (davinci-003)
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                    <label class="form-check-label"> 
+                    <input class="form-check-input" name="chatModel" id="" type="radio" value="code-davinci-002"> 
+                    Codex (davinci-002)
+                  </label>
+                </div>
+
+                <button type="submit" class="btn btn-light genButton">Chat</button>
+            </form>
+
+            <div class="ai-response p-3 mt-2">
+                <p><%= response %> </p>
+            </div>
+        </div>
+
+        <div class=" container-fluid bg-black text-light w-75 mx-auto mt-5 p-5 rounded text-center">
+            <form action="/img" method="post">
+                <h3>Input an image description</h3>
+                <hr>
+                <p class=" text-light">Example prompt: </p>
+                <p class=" fst-italic">Shiba smiling on top of a hill wearing a raincoat</p>
+                <p>Sample output:</p>
+                <img src="/images/sampleOutput.png" alt="" class="w-100 rounded imgGen">
+                <hr>
+                <input type="text" name="imgInput" class=" form-control w-100 mt-2 mx-auto" placeholder="'Image description here'" required>
+                <button type="submit" class=" btn btn-light mt-3 genButton"> Generate</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="animate-box">
+    <div class="animate-circle"></div>
+</div>
+
+<p class=" text-center mt-2"><i>Z, 2022</i></p>
+
+
+    
+
+<script src="/scripts/index.js" text="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -5,13 +5,15 @@ const { Configuration, OpenAIApi } = require('openai')
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({extended: true}))
-app.use(express.static('public'))
+app.use(express.static(__dirname + '/public'))
 
+app.set('view engine', 'ejs')
 
 let OPEN_AI_API_KEY = process.env.API_KEY
 
 let orgID = 'org-YqkSoqf18JKiZxGkdJpc0NSW'
 let userPrompt = 'How are you'
+let nodeResponse = 'AI Response will be here'
 
 const configuration = new Configuration({
     apiKey: OPEN_AI_API_KEY,
@@ -19,13 +21,16 @@ const configuration = new Configuration({
 
 
 app.get('/', (req, res) =>{
-    res.sendFile(__dirname + '/public/index.html')
+    // res.sendFile(__dirname + '/public/index.html')
+    // res.send('Hello')
+    res.render('index',{
+        response: nodeResponse,
+    })
     
 })
 app.post('/', (req, res) =>{
     userPrompt = req.body.userInput
     aiModel = req.body.chatModel
-    console.log(aiModel)
     let maxTokens = 200
     
     const openai = new OpenAIApi(configuration)
@@ -35,12 +40,15 @@ app.post('/', (req, res) =>{
         max_tokens: maxTokens,
         temperature: 0,
     }).then((response) => {
-        res.setHeader('Content-type', 'text/html')
-        res.write(`<p> User input: ${userPrompt} </p> <hr>`)
-        res.write('<h1>' + response.data.choices[0].text + '</h1>')
-        console.log(`Response: ${JSON.stringify(response.data)}`)
-        res.write('<a href="/index.html"> Try again </a>')
-        res.end()
+        // res.setHeader('Content-type', 'text/html')
+        // res.write(`<p> User input: ${userPrompt} </p> <hr>`)
+        // res.write('<h1>' + response.data.choices[0].text + '</h1>')
+        nodeResponse = response.data.choices[0].text
+        // console.log(`Response: ${JSON.stringify(response.data)}`)
+        // res.write('<a href="/index.html"> Try again </a>')
+        // res.end()
+        console.log('AI Response: ' + nodeResponse)
+        res.redirect('/')
 
     })
     console.log('Query: ' + req.body.userInput)
