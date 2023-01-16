@@ -23,7 +23,8 @@ const configuration = new Configuration({
 app.get('/', (req, res) =>{
     // res.sendFile(__dirname + '/public/index.html')
     // res.send('Hello')
-    let ipAddress = req.socket.remoteAddress
+    // let ipAddress = req.socket.remoteAddress
+    let ipAddress = req.ip
     console.log(`${ipAddress} connected.`)
 
     if(ipAddress != prevIP){
