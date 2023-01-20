@@ -9,8 +9,7 @@ app.use(express.static(__dirname + '/public'))
 
 app.set('view engine', 'ejs')
 
-// let OPEN_AI_API_KEY = process.env.API_KEY
-let OPEN_AI_API_KEY = "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"
+let OPEN_AI_API_KEY = process.env.API_KEY
 
 let orgID = 'org-YqkSoqf18JKiZxGkdJpc0NSW'
 let userPrompt = 'How are you'
