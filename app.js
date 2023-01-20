@@ -9,7 +9,8 @@ app.use(express.static(__dirname + '/public'))
 
 app.set('view engine', 'ejs')
 
-let OPEN_AI_API_KEY = process.env.API_KEY
+// let OPEN_AI_API_KEY = process.env.API_KEY
+let OPEN_AI_API_KEY = "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"
 
 let orgID = 'org-YqkSoqf18JKiZxGkdJpc0NSW'
 let userPrompt = 'How are you'
@@ -41,8 +42,10 @@ app.get('/', (req, res) =>{
     
 })
 app.post('/', (req, res) =>{
+    button = req.body.submit
     userPrompt = req.body.userInput
     aiModel = req.body.chatModel
+    console.log('##############' + button)
     let maxTokens = 200
     
     const openai = new OpenAIApi(configuration)
@@ -52,16 +55,28 @@ app.post('/', (req, res) =>{
         max_tokens: maxTokens,
         temperature: 0,
     }).then((response) => {
-        // res.setHeader('Content-type', 'text/html')
-        // res.write(`<p> User input: ${userPrompt} </p> <hr>`)
-        // res.write('<h1>' + response.data.choices[0].text + '</h1>')
-        nodeResponse = response.data.choices[0].text
-        // console.log(`Response: ${JSON.stringify(response.data)}`)
-        // res.write('<a href="/index.html"> Try again </a>')
-        // res.end()
-        console.log('AI Response: ' + nodeResponse)
-        res.redirect('/')
-
+        if(button == 'chat'){
+            // res.setHeader('Content-type', 'text/html')
+            // res.write(`<p> User input: ${userPrompt} </p> <hr>`)
+            // res.write('<h1>' + response.data.choices[0].text + '</h1>')
+            nodeResponse = response.data.choices[0].text
+            // console.log(`Response: ${JSON.stringify(response.data)}`)
+            // res.write('<a href="/index.html"> Try again </a>')
+            // res.end()
+            console.log('AI Response: ' + nodeResponse)
+            res.redirect('/')
+        } else {
+            console.log('chat-out!!!!!')
+            res.setHeader('Content-type', 'text/html')
+            res.write(`<p> User input: ${userPrompt} </p> <hr>`)
+            res.write('<h1>' + response.data.choices[0].text + '</h1>')
+            nodeResponse = response.data.choices[0].text
+            console.log(`Response: ${JSON.stringify(response.data)}`)
+            res.write('<a href="https://openaiztest.herokuapp.com"> Try again </a>')
+            res.end()
+            // console.log('AI Response: ' + nodeResponse)
+            // res.redirect('/')
+        }
     })
     console.log('Query: ' + req.body.userInput)
 })
