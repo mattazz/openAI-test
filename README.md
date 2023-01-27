@@ -1,6 +1,5 @@
 # openAI-test
 
-
 ## To do
 
 ## Fixed
